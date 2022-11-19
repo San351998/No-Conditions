@@ -1,6 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
@@ -12,13 +10,11 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import { Image } from '@mui/icons-material';
+import headerstyle from './Header.module.scss'
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
 
 function Header(props) {
-  const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -27,74 +23,82 @@ function Header(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Image />
+      {/* <img width={70} height={70} src="./images/mainlogo.png" alt='mainlogo' /> */}
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItem>
+          <ListItemButton>
+            <ListItemText>link</ListItemText>
+          </ListItemButton>
+        </ListItem>
+        <ListItem>
+          <ListItemButton>
+            <ListItemText>link</ListItemText>
+          </ListItemButton>
+        </ListItem>
+        <ListItem>
+          <ListItemButton>
+            <ListItemText>link</ListItemText>
+          </ListItemButton>
+        </ListItem>
+
       </List>
     </Box>
   );
 
-  const container = window !== undefined ? () => window().document.body : undefined;
-
   return (
     <>
-      <Box sx={{ display: 'flex' }}>
-        <AppBar component="nav">
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: 'none' } }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <img width={70} height={70} src="./images/mainlogo.png" alt='mainlogo'/>
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-              {navItems.map((item) => (
-                <Button key={item} sx={{ color: '#fff' }}>
-                  {item}
-                </Button>
-              ))}
-            </Box>
-          </Toolbar>
-        </AppBar>
-        <Box component="nav">
-          <Drawer
-            container={container}
-            variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-            sx={{
-              display: { xs: 'block', sm: 'none' },
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-            }}
+      <div className={headerstyle.header_main}>
+        <Toolbar className={headerstyle.header_inner}>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
           >
-            {drawer}
-          </Drawer>
-        </Box>
+            <MenuIcon />
+          </IconButton>
+          <img className={headerstyle.logo_img} width={70} height={70} src="./images/mainlogo.png" alt='mainlogo' />
+          <div className={headerstyle.links_wrapper}>
+            <div className={headerstyle.links_main} sx={{ display: { xs: 'none', sm: 'block' } }}>
+              <Button className={headerstyle.link}>
+                Docs
+              </Button>
+              <Button className={headerstyle.link}>
+                Blog
+              </Button>
+              <Button className={headerstyle.link}>
+                Job
+              </Button>
+            </div>
+            <div className={headerstyle.header_social}>
+               <img src="./images/instagram.png" />
+               <img src="./images/youtube.png" />
+            </div>
+          </div>
+        </Toolbar>
+
+      </div>
+      <Box component="nav">
+        <Drawer
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          }}
+        >
+          {drawer}
+        </Drawer>
       </Box>
     </>
   );
 }
 
-Header.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default Header;
