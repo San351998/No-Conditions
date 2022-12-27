@@ -1,0 +1,33 @@
+.loginpage_title{
+    text-align: center;
+    margin: 2rem 0;
+}
+.loginpage_inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login_form .login_field {
+    width: 300px;
+}
+
+.login_form .error {
+    text-align: left;
+    width: 100%;
+    font-size: 13px;
+    color: red;
+    line-height: 0;
+}
+
+.login_form .error p{
+    margin: 0;
+}

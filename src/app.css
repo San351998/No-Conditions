@@ -1,0 +1,16 @@
+/* $font_family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Noto Sans, ui-sans-serif, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji, Arial; */
+
+
+.dark-mode {
+    --body_color: rgb(13, 16, 19);
+    --error_color: red;
+}
+
+.light-mode {
+    --body_color: #fff;
+}
+
+body {
+    margin: 0;
+    background-color: var(--body_color) !important;
+}

@@ -1,13 +1,12 @@
 import React from 'react';
-import Darktheme from '../../components/dark-theme-toggle/Darktheme';
-// import { Carousel } from 'bootstrap';
+import { Carousel } from 'react-bootstrap';
 
 
 const Home = () => {
 
     return (
         <>
-            {/* <Carousel indicators={false}>
+            <Carousel indicators={false}>
                 <Carousel.Item>
                     <iframe width="100%" height="550px" src="https://www.youtube.com/embed/vVA7nwrFxis" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </Carousel.Item>
@@ -17,9 +16,8 @@ const Home = () => {
                 <Carousel.Item>
                     <iframe width="100%" height="550px" src="https://www.youtube.com/embed/JN26SZGiKPo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </Carousel.Item>
-            </Carousel> */}
+            </Carousel>
 
-<Darktheme />
    
         </>
     )

@@ -1,20 +1,29 @@
-import React from 'react';
-import './App.scss';
+import React, {useEffect, useContext} from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './pages/home/Home';
-import Header from './components/header/Header';
+import { axiosRequest, axiosResponse } from './axios';
+import Home from './pages/home/home';
+import Header from './components/header/header';
 import "bootstrap/dist/css/bootstrap.min.css";
+import Signup from './components/dashboardscreens/signup';
+import LoaderContext from './context/loadercontext';
+import { Login } from '@mui/icons-material';
 
 function App() {
+  const {Loading, setLoading} = useContext(LoaderContext) 
+  useEffect(() => {
+    axiosRequest(setLoading)
+    axiosResponse(setLoading)
+  },[])
+
   return (
-    <div className="App">
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />}> </Route>
+          {/* <Route path="/" element={<Home />}/> */}
+          <Route path="/signup" element={<Signup />}> </Route>
+          <Route path="/login" element={<Login />}> </Route>
         </Routes>
       </BrowserRouter>
-    </div>
   );
 }
 

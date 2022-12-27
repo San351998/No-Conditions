@@ -10,7 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import headerstyle from './Header.module.scss'
+import headerstyle from './header.module.css'
 
 const drawerWidth = 240;
 
@@ -59,7 +59,7 @@ function Header(props) {
           >
             <MenuIcon />
           </IconButton>
-          <img className={headerstyle.logo_img} width={70} height={70} src="./images/mainlogo.png" alt='mainlogo' />
+          <img className={headerstyle.logo_img} width={70} height={70} alt="mainlogo" src="./images/mainlogo.png" alt='mainlogo' />
           <div className={headerstyle.links_wrapper}>
             <div className={headerstyle.links_main} sx={{ display: { xs: 'none', sm: 'block' } }}>
               <Button className={headerstyle.link}>
@@ -73,8 +73,8 @@ function Header(props) {
               </Button>
             </div>
             <div className={headerstyle.header_social}>
-               <img src="./images/instagram.png" />
-               <img src="./images/youtube.png" />
+               <img alt='instagram' src="./images/instagram.png" />
+               <img alt='youtube' src="./images/youtube.png" />
             </div>
           </div>
         </Toolbar>
